@@ -37,4 +37,3 @@ print("Module scope gohan is" , gohan)#モジュールスコープの出力
 gohan = decrement(gohan)
 print("Module scope gohan is", gohan)
 
-import numpy as np
