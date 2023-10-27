@@ -1,3 +1,4 @@
+import numpy as np
 print("HELLO!")
 
 sequence = ['I' , 'have', 'a', 'pen']
