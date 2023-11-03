@@ -25,12 +25,15 @@ select position, count(position) from confederationcup group by position;
 select * from confederationcup where national = "Japan"  order by height desc;
 
 /*課題9*/
-
+select * from confederationcup where YEAR(birth) + 44 <= YEAR(20231231);
 
 /*課題10*/
+select * from confederationcup where position = "DF" AND height = (select max(height) from confederationcup where position = "DF");
 
 /*課題11*/
+select national, avg(height) from confederationcup group by national order by avg(height) desc;
 
 /*課題12*/
+
 
 /*課題13*/
