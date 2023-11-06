@@ -1,0 +1,19 @@
+# Fdb version 4
+["pdflatex"] 1699042441 "c:/Users/81809/Documents/ALL_CODE/tex_report/test.tex" "test.pdf" "test" 1699042444 2
+  "c:/Users/81809/Documents/ALL_CODE/tex_report/test.tex" 1697359661 519 7438b3cebb0e7bb84279ac1affc9af40 ""
+  "c:/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty" 1697312577 8356 7bbb2c2373aa810be568c29e333da8ed ""
+  "c:/texlive/2023/texmf-dist/tex/latex/tools/.tex" 1697349819 1386 e12910b1679ec687be15153859582c13 ""
+  "c:/texlive/2023/texmf-dist/tex/luatex/luatexja/ltjsarticle.cls" 1697315224 54048 93eefc8b4e019ecace6b76a007000556 ""
+  "c:/texlive/2023/texmf-dist/tex/luatex/luatexja/luatexja-compat.sty" 1697315224 3451 ff44d344e2e02104c23f66f932551697 ""
+  "c:/texlive/2023/texmf-dist/tex/luatex/luatexja/luatexja-core.sty" 1697315224 29888 540bce0b0f6bb2a2aa67fc1e9a9837a5 ""
+  "c:/texlive/2023/texmf-dist/tex/luatex/luatexja/luatexja.sty" 1697315224 1973 f97a1c6b712147ee1879a200096b2daf ""
+  "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1697300111 41009 84b61f42d16d06bedb915f57aa2374cf ""
+  "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1697353242 8195426 f0f9f45fa029067487195fa6f482abee ""
+  "c:/texlive/2023/texmf.cnf" 1697352978 713 e69b156964470283e0530f5060668171 ""
+  "test.aux" 1699042441 34 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "test.tex" 1697359661 519 7438b3cebb0e7bb84279ac1affc9af40 ""
+  (generated)
+  "test.aux"
+  "test.log"
+  "test.pdf"
+  (rewritten before read)
