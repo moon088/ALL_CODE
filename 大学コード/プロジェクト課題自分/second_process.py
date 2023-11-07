@@ -63,7 +63,7 @@ def analyze_xml(file_path):
             print(f"Round starting at <INIT> index {init_index} does not have a REACH.\n")
 
 # ディレクトリ内のすべての.xmlファイルを検索して処理
-directory_path = 'C:\\Users\\81809\\Documents\\ALL_CODE\\大学コード\\プロジェクト課題自分' # XMLファイルが保存されているディレクトリのパスを指定
+directory_path = r'C:\Users\81809\Documents\ALL_CODE\大学コード\\プロジェクト課題自分' # XMLファイルが保存されているディレクトリのパスを指定
 
 for filename in os.listdir(directory_path):
     if filename.endswith('.xml'):
