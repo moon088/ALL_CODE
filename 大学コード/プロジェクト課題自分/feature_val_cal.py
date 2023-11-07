@@ -10,8 +10,6 @@ with open(file_path, 'r', encoding='utf-8') as file:
         txt_data = file.readlines()
 
 data_strip = [line.strip() for line in txt_data ]
-
-print(data_strip)
 list_hai0 = [line_s for line_s in data_strip if 'hai0' in line_s ]      
 hai1 = list_hai0[1].strip("hai0=") 
 
@@ -46,9 +44,9 @@ print(rihairetu)
 
 
 #ここからは特徴量の計算
-def calculate_mahjong_shanten(hand):
-    def calculate_mahjong_shanten_sub(hand):
-        if len(hand) != 14:
+def calculate_titoitu_shanten(hand):
+    def calculate_titoitu_shanten_sub(hand):
+        if len(hand) != 13:
             return "error"
 
         unique_tiles = set(hand)
@@ -61,13 +59,14 @@ def calculate_mahjong_shanten(hand):
         shanten = 6 - pairs_count
         return shanten
 
-    shanten = calculate_mahjong_shanten_sub(rihairetu)
+    shanten = calculate_titoitu_shanten_sub(rihairetu)
 
     if shanten == "Invalid hand":
         print("error")
     else:
         print("向聴数:", shanten)
 
+calculate_titoitu_shanten(rihairetu)
 
 
 
