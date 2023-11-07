@@ -10,6 +10,7 @@ with open(file_path, 'r', encoding='utf-8') as file:
         txt_data = file.readlines()
 
 data_strip = [line.strip() for line in txt_data ]
+
 print(data_strip)
 list_hai0 = [line_s for line_s in data_strip if 'hai0' in line_s ]      
 hai1 = list_hai0[1].strip("hai0=") 
@@ -43,6 +44,7 @@ def convert_to_category(input_list):
 rihairetu = convert_to_category(hai1_num)
 print(rihairetu)
 
+
 #ここからは特徴量の計算
 def calculate_mahjong_shanten(hand):
     def calculate_mahjong_shanten_sub(hand):
@@ -65,8 +67,6 @@ def calculate_mahjong_shanten(hand):
         print("error")
     else:
         print("向聴数:", shanten)
-
-
 
 
 
