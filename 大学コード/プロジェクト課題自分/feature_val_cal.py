@@ -10,12 +10,13 @@ with open(file_path, 'r', encoding='utf-8') as file:
         txt_data = file.readlines()
 
 data_strip = [line.strip() for line in txt_data ]
-list_hai0 = [line_s for line_s in data_strip if 'hai0' in line_s ]      
-hai1 = list_hai0[1].strip("hai0=") 
 
-hai1_num = hai1.split(',')
-hai1_num = [int(num.strip('"')) for num in hai1_num]
-hai1_num.sort()
+pickup_initial_hand = [item for item in data_strip if "hai0=" in item]
+filtered_initial_hand = [item.replace("hai0=", "") for item in pickup_initial_hand]
+initialhand = filtered_initial_hand[1].split(',')
+initialhand = [int(num.strip('"')) for num in initialhand]
+initialhand.sort()
+
 
 #ここまでで牌の文字列を整数変換してソートした
 #牌列を数値ではなく可視化する
@@ -39,7 +40,7 @@ def convert_to_category(input_list):
     converted = [convert_to_category_sub(num)  for num in input_list]
     return converted
 
-rihairetu = convert_to_category(hai1_num)
+rihairetu = convert_to_category(initialhand)
 print(rihairetu)
 
 
@@ -48,21 +49,27 @@ def calculate_titoitu_shanten(hand):
     def calculate_titoitu_shanten_sub(hand):
         if len(hand) != 13:
             return "error"
-
+        
+        count_of_kantu = 0
+        for tile in hand:
+            count = hand.count(tile)
+            if count >= 4:
+                count_of_kantu += 1
+                
+        allcount_of_kantu = int(count_of_kantu/4)        
         unique_tiles = set(hand)
         pairs_count = 0
-
         for tile in unique_tiles:
             count = hand.count(tile)
             pairs_count += count // 2
 
-        shanten = 6 - pairs_count
+        shanten = 6 - pairs_count + allcount_of_kantu
         return shanten
 
-    shanten = calculate_titoitu_shanten_sub(rihairetu)
-
-    if shanten == "Invalid hand":
-        print("error")
+    shanten = calculate_titoitu_shanten_sub(hand)
+    
+    if shanten == "error":
+        print("手牌の長さが不正です。")
     else:
         print("向聴数:", shanten)
 
