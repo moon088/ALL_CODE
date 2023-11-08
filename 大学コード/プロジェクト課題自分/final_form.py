@@ -1,4 +1,4 @@
-#これは全体の動きをイメージするための物です。
+#これは全体の動きをイメージするための物
 
 import second_process
 import update_hand
@@ -25,7 +25,6 @@ for filename in os.listdir(second_process.directory_path):
                 # hai_valuesを文字列から整数のリストに変換
                 hai_values = [int(value) for value in sample[key].split(',')]
                 discards_values = sample['discards_before_reach']
-        
                 
                 #print(f"x = {key[-1]}")
                 #print("hai values:", hai_values)  # ここで整数のリストとして出力
@@ -48,7 +47,7 @@ for filename in os.listdir(second_process.directory_path):
                     missing_elements = prev_set - current_set
 
                     # 消えた要素を出力
-                    # if missing_elements:
+                    #if missing_elements:
                         #print(f"消えた要素: {missing_elements}")
                     #else:
                         #print("新しいリストには前のリストのすべての要素が含まれています")

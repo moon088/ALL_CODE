@@ -44,7 +44,7 @@ def analyze_xml(file_path):
 
     return results  # 最後に結果リストを返す
 
-directory_path = r'/content/drive/MyDrive/Colab Notebooks/麻雀ファイル'
+directory_path = r'C:\Users\81809\Documents\ALL_CODE\大学コード\プロジェクト課題自分'
 
 all_results = []
 
