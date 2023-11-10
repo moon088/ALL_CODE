@@ -1,22 +1,27 @@
 #抽出し、仕分けされたデータから特徴量の計算
 import os
+import second_process
 
 #データ読み込み
-dir_path = r'C:\Users\81809\Documents\ALL_CODE\大学コード\プロジェクト課題自分'
-file_name = 'proceed_data.txt'
+second_process.directory_path = r'C:\Users\81809\Documents\ALL_CODE\大学コード\プロジェクト課題自分'
 
-file_path = os.path.join(dir_path, file_name)
-with open(file_path, 'r', encoding='utf-8') as file:
-        txt_data = file.readlines()
+for filename in os.listdir(second_process.directory_path):
+    if filename.endswith('.xml'):
+        result = []
+        file_path = os.path.join(second_process.directory_path, filename)
+        result = (second_process.analyze_xml(file_path))
 
-data_strip = [line.strip() for line in txt_data ]
+        for sample in result:
+            # haiXとdiscards_before_reachのキーを取得
+            hai_keys = [key for key in sample if key.startswith('hai')]
+            for key in hai_keys:
+                # hai_valuesを文字列から整数のリストに変換
+                hai_values = [int(value) for value in sample[key].split(',')]
 
-pickup_initial_hand = [item for item in data_strip if "hai0=" in item]
-filtered_initial_hand = [item.replace("hai0=", "") for item in pickup_initial_hand]
-initialhand = filtered_initial_hand[1].split(',')
-initialhand = [int(num.strip('"')) for num in initialhand]
-initialhand.sort()
 
+print(hai_values)
+hai_values.sort()
+print(hai_values)
 
 #ここまでで牌の文字列を整数変換してソートした
 #牌列を数値ではなく可視化する
@@ -40,7 +45,7 @@ def convert_to_category(input_list):
     converted = [convert_to_category_sub(num)  for num in input_list]
     return converted
 
-rihairetu = convert_to_category(initialhand)
+rihairetu = convert_to_category(hai_values)
 print(rihairetu)
 
 
