@@ -78,6 +78,14 @@ def calculate_titoitu_shanten(hand):
     else:
         print("向聴数:", shanten)
 
+
+def calculate_kokusi_shanten(hand):
+    
+
+
+
+
+
 calculate_titoitu_shanten(rihairetu)
 
 
