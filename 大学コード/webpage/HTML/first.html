@@ -127,7 +127,25 @@
     JSの本を借りて勉強開始。外部JS,CSSファイルをHTMLファイルに読み込むことが可能になった。<br>
     まずはhtmlをマスターしていく。
 
+    <form action="recieve.html" method="post">
+      <dl>やることリスト
+        <dt><input type="checkbox" name="todo" value="statstic">統計の勉強</dt>
+        <dt><input type="checkbox" name="todo" value="html">htmlの勉強</dt>
+        <dt><input type="checkbox" name="todo" value="val">特徴量ベクトル作る</dt>
+      </dl>
+      <dt>じゃあ最初に何やりますか？選べ</dt>
+        <select name="todo">
+          <option value="statistic">統計の勉強</option>
+          <option value="html">htmlの勉強</option>
+          <option value="val">特徴量ベクトルを作る</option>
+        </select>
+      <p><input type="submit" value="送信"></p>
+      <dt>質問箱</dt>
+      <textarea name="question" cols="30" rows="10"></textarea>
+      
     
+    </form>
+
 
 
 </body>
