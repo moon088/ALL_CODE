@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="imageArea" class="uiArea">
+        <div id="noView">
+          <div>画像ファイルをドロップするかタップしてください。</div>
+        </div>
+        <canvas id="view" width="800" height="420"></canvas>
+        <input type="file" accept=".jpg,.jpeg,.png,.gif" id="file">
+      </div>
+      <div id="controlArea" class="uiArea">
+        <button id="ef1">セピア</button>
+        <button id="efBack">戻す</button>
+        <button id="efSave">保存</button>
+        <button id="efDel">削除</button>
+      </div>
+      <div id="commentArea" class="uiArea">
+        <div>コメント <span id="commentStatus"></span></div>
+        <div>
+          <textarea id="comment"
+            data-default="投稿です！"
+            data-lenmax="100"
+          ></textarea>
+        </div>
+      </div>
+      <div id="sendArea" class="uiArea">
+        <button id="send">投稿</button>
+      </div>
+      <div id="postListArea">
+      </div>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="storage.js"></script>
+    <script src="imageArea.js"></script>
+    <script src="controlArea.js"></script>
+    <script src="commentArea.js"></script>
+    <script src="sendArea.js"></script>
+    <script src="dateFormat.js"></script>
+    <script src="postListArea.js"></script>
+
+  </body>
+</html>

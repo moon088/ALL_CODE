@@ -119,4 +119,16 @@
     tbody->表の内容
     tfoot->表のフッタ
 
+・form->フォームの作成、送信先と送信方法をaction,getで指定
+        <form action="送信先" method="get (初期値)　/ post">
+        ・get->サイト内検索などの検索キーワードの入力
+        ・post->送信するための入力フォーム
+        ・input->
+            <input type="部品の種類" name="部品の名前> value="初期値/送信されるデータ/ボタンのラベル"
+            ほか、text,password,radio,checkbox,file,image,reset,submit,buttonがある
+            
+
+
+
+
 

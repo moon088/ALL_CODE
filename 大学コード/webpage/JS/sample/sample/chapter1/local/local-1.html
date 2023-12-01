@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	const xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		console.log(xhr.responseText);
+	}
+	xhr.open('GET', 'data.txt');
+	xhr.responseType = 'text';
+	xhr.send();
+
+    </script>
+  </head>
+</html>
