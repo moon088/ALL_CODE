@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <style>
+#item {
+	background: #cef;
+	padding: 1em;
+}
+    </style>
+  </head>
+  <body>
+    <div id="item">ホットコーヒー</div>
+
+    <script>
+
+	// idがitemの要素を選択
+	const el = document.querySelector('#item');
+
+	// 要素のmouseenterイベントに関数を登録
+	el.addEventListener('mouseenter', e => {
+		console.log(e.type, e.x, e.y);
+	});
+
+	// 要素のmouseleaveイベントに関数を登録
+	el.addEventListener('mouseleave', e => {
+		console.log(e.type, e.x, e.y);
+	});
+
+	// 要素のmousemoveイベントに関数を登録
+	el.addEventListener('mousemove', e => {
+		console.log(e.type, e.x, e.y);
+	});
+
+    </script>
+  </body>
+</html>

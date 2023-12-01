@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// メニューを作る関数
+	function formatMenu(food = '未入力', price = 0) {
+		const res = `${food} : ${price}円`;
+		return res;
+	}
+
+	// 引数を変えてコンソールに出力
+	console.log(formatMenu('ホットコーヒー', 450));
+	console.log(formatMenu('スマイル', undefined));
+	console.log(formatMenu());
+
+    </script>
+  </head>
+</html>

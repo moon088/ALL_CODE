@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// 正規表現オブジェクトを作成
+	const re = /^(.+?)( = )(.+?)$/g;
+
+	// .replace()の結果をコンソールに出力
+	const s = 'a * b = b * a';
+	console.log(s.replace(re, '$3$2$1'));
+
+    </script>
+  </head>
+</html>

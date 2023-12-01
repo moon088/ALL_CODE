@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// 親クラスを作成
+	class Menu {
+		// コンストラクター
+		constructor(name, price) {
+			// 初期化をおこなう
+			this.name  = name;
+			this.price = price;
+		}
+		// インスタンスメソッド
+		getInf() {
+			// 文字列を作成して戻す
+			const t = `${this.name} : ${this.price}円`;
+			return t;
+		}
+	}
+
+	// 子クラスを作成
+	class DrinkMenu extends Menu {
+		// コンストラクター
+		constructor(name, price, size) {
+			super(name, price);
+
+			// 初期化をおこなう  サイズが有効なら代入
+			this.size = null;
+			if (size === 'S') { this.size = size; }
+			if (size === 'M') { this.size = size; }
+			if (size === 'L') { this.size = size; }
+		}
+		// インスタンスメソッド
+		getInf() {
+			// 親クラスのメソッドを使う
+			const superT = super.getInf();
+
+			// 文字列を作成して戻す
+			const t = `${superT} : サイズ ${this.size}`;
+			return t;
+		}
+		// 追加したインスタンスメソッド
+		getSizeNum() {
+			// サイズの値によって、量（ml）の数値を返す
+			if (this.size === 'S') { return 200; }
+			if (this.size === 'M') { return 400; }
+			if (this.size === 'L') { return 600; }
+			return 0;
+		}
+	}
+
+	// クラスを使ってオブジェクトを作る
+	const cake = new Menu('チョコケーキ', 460);
+	const iceTea = new DrinkMenu('アイスティー', 400, 'S');
+
+	// 親クラスのオブジェクトでメソッドを使う
+	console.log(cake.getInf());
+
+	// 子クラスのオブジェクトでメソッドを使う
+	console.log(iceTea.getInf());
+	console.log(`量は${iceTea.getSizeNum()}ml`);
+
+    </script>
+  </head>
+</html>

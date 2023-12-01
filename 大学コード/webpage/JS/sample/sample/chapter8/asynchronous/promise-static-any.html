@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script src="./promise-static-wait-func.js"></script>
+    <script>
+
+	// Promise.any() その1
+	setTimeout(() => {
+		console.log('--- Promise.any() その1 ---');
+
+		// Promiseオブジェクトの配列を作成
+		const arr = [p(1, false), p(2, true), p(3, false)];
+
+		// Promise.any()の処理
+		Promise.any(arr).then(data => {
+			// 成功時
+			console.log('--> then :', data);
+		}).catch(data => {
+			// 失敗時
+			console.log('--> catch :', data);
+		});
+	}, 0);
+
+	// Promise.any() その2
+	setTimeout(() => {
+		console.log('--- Promise.any() その2 ---');
+
+		// Promiseオブジェクトの配列を作成
+		const arr = [p(1, false), p(2, false), p(3, false)];
+
+		// Promise.any()の処理
+		Promise.any(arr).then(data => {
+			// 成功時
+			console.log('--> then :', data);
+		}).catch(data => {
+			// 失敗時
+			console.log('--> catch :', data);
+		});
+	}, 100);
+
+    </script>
+  </head>
+</html>

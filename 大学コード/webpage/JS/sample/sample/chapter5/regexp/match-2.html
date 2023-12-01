@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// 正規表現オブジェクトを作成
+	const re = /<.+?>/g;
+
+	// .match()の結果をコンソールに出力1
+	const str1 = 'メニュー<span class="strong">コーヒー</span>';
+	console.log(str1.match(re));
+
+	// .match()の結果をコンソールに出力2
+	const str2 = 'メニュー : コーヒー'; 
+	console.log(str2.match(re));
+
+    </script>
+  </head>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	let test = true;
+	if (test) {
+		let food = 'ケーキ';
+		console.log('階層1 :', food);
+
+		if (test) {
+			console.log('  階層2 :', food);
+			let food = 'パン';
+		}
+	}
+
+    </script>
+  </head>
+</html>

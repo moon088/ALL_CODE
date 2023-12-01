@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script src="./promise-static-wait-func.js"></script>
+    <script>
+
+	// Promise.race() その1
+	setTimeout(() => {
+		console.log('--- Promise.race() その1 ---');
+
+		// Promiseオブジェクトの配列を作成
+		const arr = [p(1, true), p(2, false), p(3, true)];
+
+		// Promise.race()の処理
+		Promise.race(arr).then(data => {
+			// 成功時
+			console.log('--> then :', data);
+		}).catch(data => {
+			// 失敗時
+			console.log('--> catch :', data);
+		});
+	}, 0);
+
+	// Promise.race() その2
+	setTimeout(() => {
+		console.log('--- Promise.race() その2 ---');
+
+		// Promiseオブジェクトの配列を作成
+		const arr = [p(1, false), p(2, true), p(3, false)];
+
+		// Promise.race()の処理
+		Promise.race(arr).then(data => {
+			// 成功時
+			console.log('--> then :', data);
+		}).catch(data => {
+			// 失敗時
+			console.log('--> catch :', data);
+		});
+	}, 100);
+
+    </script>
+  </head>
+</html>

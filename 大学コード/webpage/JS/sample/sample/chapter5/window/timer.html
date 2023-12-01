@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// 繰り返し処理
+	const start = Date.now();
+	const intervalID = setInterval(() => {
+		console.log(Date.now() - start, '繰り返し');
+	}, 100);
+
+	// 一定時間後に処理
+	setTimeout(() => {
+		// 繰り返し処理を停止
+		clearInterval(intervalID);
+		console.log(Date.now() - start, '停止');
+	}, 1000);
+
+    </script>
+  </head>
+</html>

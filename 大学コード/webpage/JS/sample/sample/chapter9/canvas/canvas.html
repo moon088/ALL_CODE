@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+canvas {
+	background: url(./img/transparent.png);
+	border: solid 1px #888;
+}
+    </style>
+  </head>
+  <body>
+
+    <canvas id="canvas" width="400" height="300"></canvas>
+
+    <script>
+
+	// Canvasを選択して、2次元コンテクストを取り出す
+	const canvas  = document.querySelector('#canvas');
+	const context = canvas.getContext('2d');
+
+	// Canvasと2次元コンテクストを文字列にして出力
+	console.log(`${canvas}`);
+	console.log(`${context}`);
+
+	// 横幅と高さを出力
+	console.log(canvas.width);
+	console.log(canvas.height);
+
+    </script>
+  </body>
+</html>

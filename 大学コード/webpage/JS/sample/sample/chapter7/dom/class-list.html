@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <style>
+/* 奇数の表示 */
+.caution li:nth-of-type(odd) {
+	background: #ff0;
+	color: #000;
+}
+/* 偶数の表示 */
+.caution li:nth-of-type(even) {
+	background: #000;
+	color: #ff0;
+}
+    </style>
+  </head>
+  <body>
+    <ul id="menu">
+      <li>ホットコーヒー</li>
+      <li>アイスコーヒー</li>
+      <li>チョコケーキ</li>
+    </ul>
+
+    <script>
+
+	// idがmenuの要素を選択
+	const elMenu = document.querySelector('#menu');
+
+	// クラスを追加
+	elMenu.classList.add('caution');
+
+	// 1秒後にクラスを削除
+	setTimeout(() => {
+		elMenu.classList.remove('caution');
+	}, 1000);
+
+    </script>
+  </body>
+</html>

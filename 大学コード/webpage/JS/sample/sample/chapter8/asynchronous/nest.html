@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	console.log('処理1');
+
+	// 100ミリ秒待って実行
+	setTimeout(() => {
+		console.log('処理A');
+
+		// 100ミリ秒待って実行
+		setTimeout(() => {
+			console.log('処理B');
+
+			// 100ミリ秒待って実行
+			setTimeout(() => {
+				console.log('処理C');
+
+				// 100ミリ秒待って実行
+				setTimeout(() => {
+					console.log('処理D');
+
+					// 100ミリ秒待って実行
+					setTimeout(() => {
+						console.log('処理E');
+					}, 100);
+				}, 100);
+			}, 100);
+		}, 100);
+	}, 100);
+
+	console.log('処理2');
+
+    </script>
+  </head>
+</html>

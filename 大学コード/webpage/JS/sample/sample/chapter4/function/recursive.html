@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// 再帰関数
+	function recursion(n, max) {
+		// 引数nをコンソールに出力
+		console.log(n);
+
+		// 引数を2倍にする
+		n *= 2;
+
+		// nがmaxを超えたら終了
+		if (n > max) { return; }
+
+		// 再帰的に呼び出す
+		recursion(n, max);
+	}
+
+	// 初期の値を16、最大値を1000として実行
+	recursion(16, 1000);
+
+    </script>
+  </head>
+</html>

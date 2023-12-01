@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// 関数を返す関数
+	function getFunc() {
+		// innerFunc関数外の変数
+		const name = 'チョコパフェ';
+
+		// 内部の関数
+		function innerFunc() {
+			// innerFunc関数内の変数
+			const price = 800;
+
+			// nameを取り込んで使える
+			console.log(`${name} : ${price}円`);
+		}
+
+		// 関数を返す
+		return innerFunc;
+	}
+
+	// 関数を返す関数を実行
+	const func = getFunc();
+
+	// 受け取って関数を実行
+	func();
+
+    </script>
+  </head>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// クラスを作成
+	class Menu {
+		// コンストラクター
+		constructor(name, price) {
+			// 初期化をおこなう
+			this.name  = name;
+			this.price = price;
+		}
+		// 静的メソッド
+		static calcTax(price, taxPer) {
+			// 税込み価格を計算
+			const res = Math.trunc(price * (100 + taxPer) / 100);
+
+			// 戻り値を戻す
+			return res;
+		}
+	}
+
+	// 税込み価格を計算する
+	console.log(Menu.calcTax(440, 10));
+	console.log(Menu.calcTax(460, 10));
+
+    </script>
+  </head>
+</html>

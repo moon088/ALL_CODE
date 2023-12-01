@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// DOMの読み込み終了時の処理を登録
+	window.addEventListener('DOMContentLoaded', function() {
+		// idがitem2の要素の内部の文字列を取得して、変数menuに代入する
+		let menu = document.querySelector('#item2').innerText;
+
+		// 出力用の文字列を作り、変数htmlに代入する
+		let html = '<strong>『' + menu + '』セール中！</strong>';
+
+		// idがsaleの要素の内部のHTMLを、変数htmlの内容にする
+		document.querySelector('#sale').innerHTML = html;
+	});
+
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li id="item1">チョコレートパフェ</li>
+      <li id="item2">チーズケーキ</li>
+    </ul>
+    <div id="sale"></div>
+  </body>
+</html>

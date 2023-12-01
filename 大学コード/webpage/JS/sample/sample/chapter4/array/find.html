@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// 配列を作成
+	const arr = [
+		{name: 'コーヒー', price: 450},
+		{name: '紅茶',     price: 450},
+		{name: 'ケーキ',   price: 500}
+	];
+
+	// .find()で探してコンソールに出力
+	console.log(arr.find(x => x.price >= 500));
+	console.log(arr.find(x => x.price >= 1000));
+
+	// .findIndex()で探してコンソールに出力
+	console.log(arr.findIndex(x => x.price >= 500));
+	console.log(arr.findIndex(x => x.price >= 1000));
+
+    </script>
+  </head>
+</html>

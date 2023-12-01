@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// 正規表現オブジェクトを作成
+	const re = /([\*_]{2,})(.+?)(\1)/g;
+
+	// 文字列を作成
+	const s = 'マークダウンでは、**強調**を***アスタリスク***か___アンダーバー___を2つあるいは3つでおこなえます。無駄に*****たくさん*****書いてみました。';
+
+	// 関数を使って置換
+	const rep = s.replace(re, (s, s1, s2, s3) => {
+		// 変数の初期化
+		const len = s1.length;
+		let tag = [];
+
+		// s1の長さによって、タグを変える
+		if (len === 2) { tag = ['<strong>', '</strong>']; }
+		if (len >= 3)  { tag = ['<em><strong>', '</strong></em>']; }
+
+		// タグではさんだ文字列を返す
+		return tag[0] + s2 + tag[1];
+	});
+
+	// コンソールに出力
+	console.log(rep);
+
+    </script>
+  </head>
+</html>

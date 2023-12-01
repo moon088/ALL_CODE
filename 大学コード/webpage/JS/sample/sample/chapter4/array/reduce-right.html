@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// 配列を作成
+	const arr = [10, 20, 30, 40];
+
+	// .reduceRight()を実行
+	const sum = arr.reduceRight((a, b, i) => {
+		console.log(i, a, b);
+		return a + b;
+	}, 0);
+	console.log(sum);
+
+    </script>
+  </head>
+</html>

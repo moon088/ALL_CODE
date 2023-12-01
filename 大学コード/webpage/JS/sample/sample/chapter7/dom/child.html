@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>メニューリスト</h1>
+    <ul id="menu">
+      <li id="item1">ホットコーヒー</li>
+      <li id="item2">アイスコーヒー</li>
+      <li id="item3">チョコケーキ</li>
+    </ul>
+
+    <script>
+
+	// idがメニューの要素を選択
+	const el = document.querySelector('#menu');
+
+	// 子要素の情報を、コンソールに出力
+	console.log('--- childNodes ---');
+	const child = el.childNodes;
+	console.log(`${child}`);
+	console.log(`${child[0]}`);
+	console.log(`${child[1]}、id="${child[1].id}"`);
+	console.log(`${child[2]}`);
+	console.log(`${child[3]}、id="${child[3].id}"`);
+
+	// 直下の最初、最後の要素の情報を、コンソールに出力
+	console.log('--- firstChild / lastChild ---');
+	console.log(`${el.firstChild}`);
+	console.log(`${el.lastChild}`);
+
+    </script>
+  </body>
+</html>

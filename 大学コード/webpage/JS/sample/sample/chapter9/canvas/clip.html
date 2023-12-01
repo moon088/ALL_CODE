@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+canvas {
+	background: url(./img/transparent.png);
+	border: solid 1px #888;
+}
+    </style>
+  </head>
+  <body>
+
+    <canvas id="canvas" width="400" height="300"></canvas>
+
+    <script>
+
+	// Canvasを選択して、2次元コンテクストを取り出す
+	const canvas  = document.querySelector('#canvas');
+	const context = canvas.getContext('2d');
+
+	// 設定をおこなう
+	context.fillStyle   = '#faa';
+	context.strokeStyle = '#44f';
+	context.lineWidth   = 8;
+
+	// パスの指定を開始
+	context.beginPath();
+
+	// パスを作る（三角形）
+	context.moveTo(200, 0);
+	context.lineTo(0,   250);
+	context.lineTo(400, 250);
+	context.closePath()
+
+	// コンテクストを保存してクリップ
+	context.save();
+	context.clip();
+
+	// 矩形を描く
+	context.fillRect(25, 25, 150, 250);
+	context.strokeRect(25, 25, 150, 250);
+
+	// コンテクストを復帰
+	context.restore();
+
+	// 矩形を描く
+	context.fillRect(225, 25, 150, 250);
+	context.strokeRect(225, 25, 150, 250);
+
+    </script>
+  </body>
+</html>

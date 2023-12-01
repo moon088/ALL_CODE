@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// 配列に対して、メソッドチェーンで処理
+	[11, 22, 33, 44, 55, 66]
+	.map((x, i) => ({i: i, n: x}))
+	.filter(x => x.n % 2 === 0)
+	.forEach(x => console.log(`${x.i}番目${x.n}`));
+
+    </script>
+  </head>
+</html>

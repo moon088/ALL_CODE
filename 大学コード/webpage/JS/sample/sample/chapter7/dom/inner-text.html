@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <ul id="menu">
+      <li class="item">ホットコーヒー
+        <span style="color: red;">売り切れ</span>
+      </li>
+      <li class="item">アイスコーヒー</li>
+      <li class="item">チョコケーキ</li>
+    </ul>
+
+    <script>
+
+	// 要素を選択
+	const elMenu = document.querySelector('#menu');
+	const elItems = document.querySelectorAll('.item');
+
+	// 要素内のテキストを取得して、コンソールに出力
+	console.log(elMenu.innerText);
+
+	// 要素内のテキストを書きかえ
+	elItems[0].innerText = '×××';
+
+    </script>
+  </body>
+</html>

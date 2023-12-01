@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// JSON形式の文字列を作成
+	const text = '{"menu":[{"name":"ホットコーヒー","price":450},{"name":"アイスコーヒー","price":450},{"name":"チョコケーキ","price":500},{"name":"チーズケーキ","price":500}],"order":null,"open":true}';
+
+	// オブジェクトにパース
+	let res = null;
+	try {
+		res = JSON.parse(text);
+	} catch(e) {
+	}
+
+	// コンソールに出力
+	console.log(res);
+
+    </script>
+  </head>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// .padEnd()の結果をコンソールに出力
+	console.log('--- padEnd ---');
+	console.log('|', 'abc'.padEnd(8, '#'),  '|');
+	console.log('|', 'abc'.padEnd(8, ':-'), '|');
+	console.log('|', 'abc'.padEnd(8),       '|');
+	console.log('|', 'abc'.padEnd(2, '@'),  '|');
+
+	// .padStart()の結果をコンソールに出力
+	console.log('--- padStart ---');
+	console.log('|', '1234'.padStart(8, '0'), '|');
+	console.log('|', '1234'.padStart(8),      '|');
+	console.log('|', '1234'.padStart(2, '0'), '|');
+
+	// .substr()で短くする
+	console.log('--- substr ---');
+	console.log('|', 'abc'.substr(0, 2), '|');  // 前2文字
+	console.log('|', 'abc'.substr(-2),   '|');  // 後2文字
+
+    </script>
+  </head>
+</html>

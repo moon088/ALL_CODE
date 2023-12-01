@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+canvas {
+	background: url(./img/transparent.png);
+	border: solid 1px #888;
+}
+    </style>
+  </head>
+  <body>
+
+    <canvas id="canvas" width="400" height="300"></canvas>
+
+    <script>
+
+	// Canvasを選択して、2次元コンテクストを取り出す
+	const canvas  = document.querySelector('#canvas');
+	const context = canvas.getContext('2d');
+
+	// Imageオブジェクトを作成
+	const img = new Image();
+
+	// 読み込み完了時の処理を登録
+	img.onload = function() {
+		// 画像を描画
+		context.drawImage(img,
+			150, 250, 700, 500,
+			 25,  25, 350, 250);
+	};
+
+	// 画像を読み込む
+	img.src = './img/DT1502.jpg';
+
+    </script>
+  </body>
+</html>

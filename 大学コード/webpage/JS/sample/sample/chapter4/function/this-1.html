@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// 関数
+	function fnc1() {
+		// 関数の中
+		console.log('中', this);
+
+		// 内側の関数
+		function fnc2() {
+			// 内側の関数の中
+			console.log('内', this);
+		}
+
+		// 内側の関数を実行
+		fnc2();
+	}
+
+	// グローバル
+	console.log('外', this);
+
+	// 関数を実行
+	fnc1();
+
+    </script>
+  </head>
+</html>

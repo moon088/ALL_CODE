@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script src="./promise-static-wait-func.js"></script>
+    <script>
+
+	// Promiseオブジェクトの配列を作成
+	const arr = [p(1, false), p(2, true), p(3, false)];
+
+	// Promise.allSettled()の処理
+	Promise.allSettled(arr).then(data => {
+		console.log('--> then :', data);
+	});
+
+    </script>
+  </head>
+</html>

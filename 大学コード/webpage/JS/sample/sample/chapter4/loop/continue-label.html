@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// ラベルouterつきの繰り返し処理
+	outer:
+	for (let i = 0; i < 3; i ++) {
+		for (let j = 0; j < 3; j ++) {
+			// iが1、jが1のときに、ラベルouterに処理を飛ばす
+			if (i === 1 && j === 1) {
+				console.log(i, j, 'continue');
+				continue outer;
+			}
+
+			console.log(i, j);
+		}
+	}
+
+    </script>
+  </head>
+</html>

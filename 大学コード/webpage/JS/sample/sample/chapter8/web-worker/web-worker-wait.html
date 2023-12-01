@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// Workerを作成
+	const worker = new Worker('web-worker-wait.js');
+
+	// Workerに値を送信
+	worker.postMessage('送信！');
+
+	// Workerから送信された値をconsoleに出力
+	worker.onmessage = function(event) {
+		// データをコンソールに出力
+		console.log('@html', event.data);
+
+		// 待機処理をクリア
+		clearInterval(intervalID);
+	};
+
+	// 待機処理
+	let cnt = 0;
+	const intervalID = setInterval(() => {
+		console.log('@html', 'wait...', cnt ++);
+	}, 100);
+
+    </script>
+  </head>
+</html>

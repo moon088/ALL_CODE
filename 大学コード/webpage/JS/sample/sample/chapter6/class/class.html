@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// クラスを作成
+	class Menu {
+		// コンストラクター
+		constructor(name, price) {
+			// 初期化をおこなう
+			this.name  = name;
+			this.price = price;
+		}
+		// インスタンスメソッド
+		getInf() {
+			// 文字列を作成
+			const t = `${this.name} : ${this.price}円`;
+
+			// 戻り値を戻す
+			return t;
+		}
+	}
+
+	// クラスを使ってオブジェクトを作る
+	const cake1 = new Menu('チョコケーキ', 460);
+	const cake2 = new Menu('チーズケーキ', 440);
+
+	// プロパティを使う
+	console.log(cake1.name, cake1.price);
+	console.log(cake2.name, cake2.price);
+
+	// メソッドを使う
+	console.log(cake1.getInf());
+	console.log(cake2.getInf());
+
+    </script>
+  </head>
+</html>

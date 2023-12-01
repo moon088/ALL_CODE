@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <ul id="menu">
+      <li>ホットコーヒー</li>
+      <li>アイスコーヒー</li>
+      <li>チョコケーキ</li>
+    </ul>
+
+    <script>
+
+	// idがmenuの要素を選択
+	const elMenu = document.querySelector('#menu');
+
+	// li要素を作成して末尾に追加
+	const elLi = document.createElement('li');
+	elLi.innerHTML = 'チーズケーキ'
+		+ ' <span style="color: red;">おすすめ</span>';
+	elMenu.appendChild(elLi);
+
+	// li要素を複製して先頭に追加
+	const elLi2 = document.createElement('li');
+	elLi2.innerHTML = '紅茶'
+		+ ' <span style="color: red;">おすすめ</span>';
+	elMenu.insertBefore(elLi2, elMenu.firstChild);
+
+    </script>
+  </body>
+</html>

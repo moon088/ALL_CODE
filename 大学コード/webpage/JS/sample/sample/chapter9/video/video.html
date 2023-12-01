@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <video id="video" width="400" height="300">
+      <source src="gogh.mp4">
+    </video>
+    <div>
+      <button id="play">再生</button>
+      <button id="pause">一時停止</button>
+    </div>
+    <div>
+      現在/全体 秒 : <span id="time"></span>
+    </div>
+    <div id="status"></div>
+
+    <script>
+
+	// windowにDOMContentLoadedの処理を登録
+	window.addEventListener('DOMContentLoaded', e => {
+		// video要素と、情報出力用要素を選択
+		const elVideo = document.querySelector('#video');
+		const elTm = document.querySelector('#time');
+		const elStatus = document.querySelector('#status');
+
+		// 再生ボタンをクリックしたときの処理
+		document.querySelector('#play')
+		.addEventListener('click', e => {
+			elVideo.play();
+			elStatus.innerText = '再生中';
+		});
+
+		// 一時停止ボタンをクリックしたときの処理
+		document.querySelector('#pause')
+		.addEventListener('click', e => {
+			elVideo.pause();
+			elStatus.innerText = '一時停止中';
+		});
+
+		// 現在/全体時間の表示
+		elVideo.addEventListener('timeupdate', e => {
+			elTm.innerText = elVideo.currentTime
+				+ '/' + elVideo.duration;
+		});
+
+		// 再生完了
+		elVideo.addEventListener('ended', e => {
+			elStatus.innerText = '再生終了';
+		});
+	});
+
+    </script>
+  </body>
+</html>

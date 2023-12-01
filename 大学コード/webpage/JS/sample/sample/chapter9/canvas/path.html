@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+canvas {
+	background: url(./img/transparent.png);
+	border: solid 1px #888;
+}
+    </style>
+  </head>
+  <body>
+
+    <canvas id="canvas" width="400" height="300"></canvas>
+
+    <script>
+
+	// Canvasを選択して、2次元コンテクストを取り出す
+	const canvas  = document.querySelector('#canvas');
+	const context = canvas.getContext('2d');
+
+	// 設定をおこなう
+	context.fillStyle   = '#faa';
+	context.strokeStyle = '#44f';
+	context.lineWidth   = 8;
+	context.lineCap     = 'round';
+	context.lineJoin    = 'round';
+
+	// パスの指定を開始
+	context.beginPath();
+
+	// 左上に三角
+	context.moveTo(100,  50);
+	context.lineTo( 10, 250);
+	context.lineTo(190, 250);
+
+	// 右上に三角
+	context.moveTo(300,  50);
+	context.lineTo(210, 250);
+	context.lineTo(390, 250);
+	context.closePath()
+
+	context.fill();    // 塗りつぶし
+	context.stroke();  // 線描画
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <style>
+/* アニメーション用の領域 */
+.animArea {
+	position: relative;  /* 位置は相対位置 */
+	width: 100px;        /* 横幅 */
+	height: 400px;       /* 高さ */
+	margin: 50px auto;   /* 上下のマージンは50px、左右は自動 */
+	background: #eee;    /* 背景色 */
+}
+/* アニメーションするボックス */
+.box {
+	position: absolute;  /* 位置は親に対する絶対位置 */
+	width: 100px;        /* 横幅 */
+	height: 100px;       /* 高さ */
+	top: 300px;          /* 上位置 */
+	background: #faa;    /* 背景色 */
+}
+    </style>
+  </head>
+  <body>
+    <div class="animArea">
+      <div class="box"></div>
+    </div>
+
+    <script>
+
+	// classがboxの要素を選択
+	const elBox = document.querySelector('.box')
+
+	// アニメーション開始
+	anim(elBox);
+
+	// アニメーション関数
+	async function anim(el) {
+		// 「四角→丸,回転→四角」のアニメーション
+		await el.animate({
+			borderRadius: ['0px', '50px',           '0px'],
+			transform:    ['',    'rotate(720deg)', ''   ]
+		}, 1500)  // 1500ミリ秒かけて変化
+		.finished;  // Promiseを得る
+
+		// 「下,赤→上,青→下,赤」のアニメーション
+		await el.animate([
+			{top: '300px', background: '#faa'},
+			{top: '0px',   background: '#aaf'},
+			{top: '300px', background: '#faa'}
+		], {
+			delay: 250,      // 250ミリ秒遅らせて開始
+			duration: 750,   // 750ミリ秒かけて変化
+			easing: 'ease-in-out',  // 変化の種類はease-in-out
+			endDelay: 250    // 250ミリ秒遅らせて終了
+		}).finished;  // Promiseを得る
+
+		anim(el);  // アニメーション再実行
+	};
+
+    </script>
+  </body>
+</html>

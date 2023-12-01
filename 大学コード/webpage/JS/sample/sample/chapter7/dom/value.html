@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <style>
+textarea {
+	width: 100%;
+	height: 4em;
+}
+    </style>
+  </head>
+  <body>
+    <textarea id="src">注文はホットコーヒーとチョコパフェとトーストです。</textarea>
+    <textarea id="dst"></textarea>
+
+    <script>
+
+	// 要素を選択
+	const elSrc = document.querySelector('#src');
+	const elDst = document.querySelector('#dst');
+
+	// 要素内の値を取得して、コンソールに出力
+	console.log(elSrc.value);
+
+	// 要素内の値を書きかえ
+	elDst.value = '本日のおすすめはスペシャルフルーツパフェです。';
+
+    </script>
+  </body>
+</html>

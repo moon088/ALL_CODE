@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <ul id="menu">
+      <li class="item">ホットコーヒー</li>
+      <li class="item">アイスコーヒー</li>
+      <li class="item">チョコケーキ</li>
+      <li class="item">チーズケーキ</li>
+    </ul>
+
+    <script>
+
+	// .querySelector()
+	console.log('--- querySelector ---');
+
+	// 選択してコンソールに出力
+	const sel1 = document.querySelector('#menu');
+	console.log(`選択した要素 : ${sel1}`);
+
+	// 選択してコンソールに出力
+	const sel2 = document.querySelector('#shop');
+	console.log(`選択した要素 : ${sel2}`);
+
+	// .querySelectorAll()
+	console.log('--- querySelectorAll ---');
+
+	// 選択してコンソールに出力
+	const sel3 = document.querySelectorAll('.item');
+	console.log(`選択した要素 : ${sel3}　${sel3.length}個`);
+
+	// 選択してコンソールに出力
+	const sel4 = document.querySelectorAll('.table');
+	console.log(`選択した要素 : ${sel4}　${sel4.length}個`);
+
+    </script>
+  </body>
+</html>

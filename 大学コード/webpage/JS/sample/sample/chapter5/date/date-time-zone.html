@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// ISO 8601で時差を指定
+	const d1 = new Date('1999-01-01T00:00:00+09:00');
+	console.log(d1.toISOString());
+
+	// ISO 8601でUTC
+	const d2 = new Date('1999-01-01T00:00:00Z');
+	console.log(d2.toISOString());
+
+	// 現地時間で指定
+	const d3 = new Date(1999, 0, 1, 0, 0, 0);
+	console.log(d3.toISOString());
+
+    </script>
+  </head>
+</html>

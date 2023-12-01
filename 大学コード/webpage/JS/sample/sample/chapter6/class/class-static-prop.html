@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script>
+
+	// クラスを作成
+	class Menu {
+		// コンストラクター
+		constructor(name, price) {
+			// 初期化をおこなう
+			this.name  = name;
+			this.price = price;
+		}
+		static MIN_PRICE = 100;
+		static MAX_PRICE = 2000;
+	}
+
+	// 最低価格と最高価格をコンソールに出力
+	console.log(Menu.MIN_PRICE);
+	console.log(Menu.MAX_PRICE);
+
+    </script>
+  </head>
+</html>
