@@ -125,10 +125,15 @@
         ・get->サイト内検索などの検索キーワードの入力
         ・post->送信するための入力フォーム
         ・input->
-            <input type="部品の種類" name="部品の名前> value="初期値/送信されるデータ/ボタンのラベル"
+            <input type="部品の種類" name="部品の名前 value="初期値/送信されるデータ/ボタンのラベル">
             ほか、text,password,radio,checkbox,file,image,reset,submit,buttonがある
-            
-
+            checkboxで選択肢で属性揃える
+        ・textarea->感想などの入力フォーム
+            <textarea name="部品の名前" colos="１行当たりの文字数" rows="表示する行数"></textarea>
+        ・selec->セレクトボックス
+            <select name="部品の名前">
+                <option value="選択肢の属性名">~~<\option>
+            <\select>            
 
 
 
