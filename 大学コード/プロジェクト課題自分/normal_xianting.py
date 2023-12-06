@@ -91,9 +91,9 @@ def mianzi_all(shoupai):
     for m in mianzi_counts['m']:
         for p in mianzi_counts['p']:
             for s in mianzi_counts['s']:
-                total_mianzi = m[0] + p[0] + s[0] + z[0] + n_fulou #面子の数
-                total_dazi = m[1] + p[1] + s[1] + z[1] #ターツの数(xiantngで雀頭の向聴数-1はしてる)
-                if total_mianzi + total_dazi > 4: #面子過多の処理
+                total_mianzi = m[0] + p[0] + s[0] + z[0] + n_fulou
+                total_dazi = m[1] + p[1] + s[1] + z[1]
+                if total_mianzi + total_dazi > 4:
                   total_dazi = 4 - total_mianzi
                   #print("aaa")
                   #ここにこれを追加してみたが、falseでもここを使わない時があった。
@@ -177,18 +177,32 @@ def convert_to_mahjong_hand(numbers):
 
     hand_str = ''.join([f"{''.join(hand[suit])}{suit}" for suit in suits if hand[suit]])
     return hand_str
-    print((hand_str)) #ここで99m14789p123669とかを出力している。
+    #print((hand_str)) ここで99m14789p123669とかを出力している。
+
+
+#99m14789p1236669sをほかの特徴量ベクトルの入力
+# ['m1','m1','m4','m7','p1','p2','p5','p6','s1','s5','s7','s7','s9']
+#に統一する変換
+
+
+
+
+
+
+
+
 
 # Example numbers
 #false example 1235899m3345p35s3z -> 色々変えてる。
-numbers = numbers = [8, 8, 9, 12, 15, 16, 17, 18, 19, 20, 23, 23, 23, 26, 1, 8, 5]
+numbers = [8, 8, 9, 12, 15, 16, 17, 18, 19, 20, 23, 23, 23, 26, 1, 8, 5]
 hand_numbers = numbers[:14]
 provided_shanten = numbers[14]
 mahjong_hand = convert_to_mahjong_hand(hand_numbers)
 hand = shoupai(mahjong_hand)
 #ここより上は問題ないはず。
+
 calculated_shanten = xiangting(hand)
 
 # Compare the provided shanten number with the calculated one
-comparison_result = provided_shanten == calculated_shanten
-print(comparison_result, provided_shanten, calculated_shanten, mahjong_hand)
+#comparison_result = provided_shanten == calculated_shanten
+#print(comparison_result, provided_shanten, calculated_shanten, mahjong_hand)

@@ -19,6 +19,6 @@ def calculate_titoitu_shanten(hand):
     return shanten
 
 #test
-hand = ['m1','m1','m4','m7','p1','p2','p5','p6','s1','s5','s7','s7','s9']
-result = calculate_titoitu_shanten(hand)
-print(result)
+#hand = ['m1','m1','m4','m7','p1','p2','p5','p6','s1','s5','s7','s7','s9']
+#result = calculate_titoitu_shanten(hand)
+#print(result)
