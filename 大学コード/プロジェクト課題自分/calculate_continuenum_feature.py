@@ -1,29 +1,34 @@
-from itertools import combinations
-from collections import Counter
+def calculate_mahjong_stats(hand, target_color):
+    # 手牌情報をリストに変換
+    hand_list = list(hand)
 
-def calculate_consecutive_combinations_features(hand):
-    # 牌の種類ごとの枚数をカウント
-    tile_count = Counter(hand)
+    # 指定された色の牌を0に変更
+    for i in range(len(hand_list)):
+        if hand_list[i][0] == target_color:
+            hand_list[i] = '0' + hand_list[i][1:]
 
-    # 特徴量の初期化
-    features = []
+    # 向聴数の計算
+    shanten = calculate_shanten(hand_list)
 
-    # 2から6までのnに対して処理
-    for n in range(2, 7):
-        # 牌の種類ごとに連続するn種類の持っている枚数を計算
-        for combination in combinations(tile_count.keys(), n):
-            count = sum(tile_count[tile] for tile in combination)
-            features.append(count)
+    # 色の数の計算
+    color_count = hand_list.count('0' + target_color)
 
-    return features
+    return shanten, color_count
 
-# テスト用の手牌（例: "m1", "m2", "m2", "p4", "p5", "s7", "s8"）
-hand = ["m1", "m2", "m2", "p4", "p5", "s7", "s8"]
+def calculate_shanten(hand):
+    # 向聴数の計算ロジックを実装
+    # ここに向聴数を計算するコードを追加する
 
-# 特徴量の計算
-result = calculate_consecutive_combinations_features(hand)
+    # 仮の戻り値として -1 を返す
+    return -1
 
-# 結果の表示
-print(result)
-print("Length of the feature array:", len(result))
+# テスト用の手牌と指定色を設定
+test_hand = "123m456p789s11234z"
+target_color = "m"  # 例えば、萬子(manzu)の場合は"m"を指定
 
+# 向聴数と色の数を計算
+shanten, color_count = calculate_mahjong_stats(test_hand, target_color)
+
+# 結果の出力
+print(f"向聴数: {shanten}")
+print(f"{target_color}の数: {color_count}")
