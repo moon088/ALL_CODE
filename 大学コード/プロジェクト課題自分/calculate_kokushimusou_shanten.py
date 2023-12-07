@@ -47,11 +47,9 @@ def calculate_kokushimusou_shanten(hand):
             shanten = 13 - count_yaochuhai - 1
         else:
             shanten = 13 - count_yaochuhai 
-        return shanten
         
-    shanten = calculate_kokushimusou_shanten_sub(hand)
-    return shanten
-
-#テスト
-#result = calculate_kokushimusou_shanten(['m1','m1','s1','s9','p1','p1','z1','z1','z3','z4','z5','z6','z7'])
-#print(result)
+        return shanten
+    return calculate_kokushimusou_shanten_sub(hand)
+#test
+#hand = ['m1','m1','s1','s9','p1','p1','z1','z1','z3','z4','z5','z6','z7']
+#print(calculate_kokushimusou_shanten(hand))
