@@ -144,7 +144,7 @@ def convert_to_mahjong_hand(numbers):
 
     hand_str = ''.join([f"{''.join(hand[suit])}{suit}" for suit in suits if hand[suit]])
     return hand_str
-    print((hand_str)) #ここで99m14789p123669とかを出力している。
+    #print((hand_str)) #ここで99m14789p123669とかを出力している。
 
 # Example numbers
 #false example 1235899m3345p35s3z -> 色々変えてる。

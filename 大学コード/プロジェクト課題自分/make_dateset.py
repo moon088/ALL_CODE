@@ -273,5 +273,5 @@ def append_all_dataset(hand,bakaze,jikaze,dora):
     all_dataset = normal_convert(hand) + titoi_convert(hand) + kokusi_convert(hand) + erase_one_convert(hand) + erase_two_convert(hand) + erase_three_convert(hand) + maxcolors_convert(hand) + sumOfColandZihai_convert(hand) + countOf2To8_convert(hand) + mentucomb_convert(hand) + yakudoraOfzihai_convert(hand,bakaze,jikaze,dora) + abs_count_dora_convert(hand,dora) + isExi_convert(hand)
     return all_dataset
 
-#print(append_all_dataset(hand,bakaze,jikaze,dora))
-#print(len(append_all_dataset(hand,bakaze,jikaze,dora)))
+print(append_all_dataset(hand,bakaze,jikaze,dora))
+print(len(append_all_dataset(hand,bakaze,jikaze,dora)))
