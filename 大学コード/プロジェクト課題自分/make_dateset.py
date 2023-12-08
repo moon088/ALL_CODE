@@ -45,7 +45,7 @@ def kokusi_convert(hand):
     kokusi_dataset[kokusi_result] = 1
     return kokusi_dataset
 #test
-print(kokusi_convert(hand)) 
+#print(kokusi_convert(hand)) 
 
 #独自制作特徴量(erase_one_xiangting)変換
 def erase_one_convert(hand):
@@ -232,7 +232,7 @@ def abs_count_dora_convert(hand,dora):
     for k_m in middle_form_manzu:
         k_mOfvector = cmbinate_bctor2(k_m[0],k_m[1],k_m[2])
         final_array += k_mOfvector
-    print(final_array)
+    #print(final_array)
     for k_p in middle_form_pinzu:
         k_pOfvector = cmbinate_bctor2(k_p[0],k_p[1],k_p[2])
         final_array += k_pOfvector
@@ -270,7 +270,7 @@ def isExi_convert(hand):
 
 #全特徴量ベクトルの結合
 def append_all_dataset(hand,bakaze,jikaze,dora):
-    all_dataset = normal_convert(hand) + titoi_convert(hand) + kokusi_convert(hand) + erase_one_convert(hand) + erase_two_convert(hand) + erase_three_convert(hand) + maxcolors_convert(hand) + sumOfColandZihai_convert(hand) + countOf2To8_convert(hand) + mentucomb_convert(hand) + yakudoraOfzihai_convert(hand,bakaze,jikaze,dora) + abs_count_dora_convert(hand,dora) + isExi_convert(hand)
+    all_dataset = normal_convert(hand) + titoi_convert(hand) + kokusi_convert(hand) + erase_one_convert(hand) + erase_two_convert(hand) + erase_three_convert(hand) + maxcolors_convert(hand) + sumOfColandZihai_convert(hand) + countOf2To8_convert(hand) + mentucomb_convert(hand) + yakudoraOfzihai_convert(hand,bakaze,jikaze,dora) + abs_count_dora_convert(hand,dora) + isExi_convert(hand) 
     return all_dataset
 
 print(append_all_dataset(hand,bakaze,jikaze,dora))
