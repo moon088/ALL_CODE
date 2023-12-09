@@ -19,5 +19,5 @@ def convert_array_to_string(arr):
     return result
 
 # Test the function with the provided array
-#test_array = ['m9','m9','p1','p4','p7','p8','p9','s1','s2','s3','s6','s6','z4','z5']
-#print(convert_array_to_string(test_array))
+test_array = ['m9','m9','p1','p4','p7','p8','p9','s1','s2','s3','s6','s6','z4','z5']
+print(convert_array_to_string(test_array))
