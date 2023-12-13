@@ -13,6 +13,7 @@ import calculate_yakuhai_fearute
 import calculate_kazuhai_feature
 import calculate_1to9_feature
 import calculate_mentu_feature
+import calculate_continuous_feature
 
 hand = ['m1','m1','m4','m7','p1','z1','z1','z1','z1','z3','z7','z7','z7']
 bakaze = 'z1'
@@ -267,10 +268,15 @@ def isExi_convert(hand):
 #test
 #print(len(isExi_convert(hand)))
 
+def continuous_convert(hand):
+    return calculate_continuous_feature.calculate_continuous_feature(hand)
+#test
+#print(continuous_convert(hand))
+
 
 #全特徴量ベクトルの結合
 def append_all_dataset(hand,bakaze,jikaze,dora):
-    all_dataset = normal_convert(hand) + titoi_convert(hand) + kokusi_convert(hand) + erase_one_convert(hand) + erase_two_convert(hand) + erase_three_convert(hand) + maxcolors_convert(hand) + sumOfColandZihai_convert(hand) + countOf2To8_convert(hand) + mentucomb_convert(hand) + yakudoraOfzihai_convert(hand,bakaze,jikaze,dora) + abs_count_dora_convert(hand,dora) + isExi_convert(hand) 
+    all_dataset = normal_convert(hand) + titoi_convert(hand) + kokusi_convert(hand) + erase_one_convert(hand) + erase_two_convert(hand) + erase_three_convert(hand) + maxcolors_convert(hand) + sumOfColandZihai_convert(hand) + countOf2To8_convert(hand) + mentucomb_convert(hand) + yakudoraOfzihai_convert(hand,bakaze,jikaze,dora) + abs_count_dora_convert(hand,dora) + isExi_convert(hand) + continuous_convert(hand)
     return all_dataset
 
 print(append_all_dataset(hand,bakaze,jikaze,dora))
