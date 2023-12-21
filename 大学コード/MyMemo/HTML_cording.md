@@ -1,4 +1,4 @@
-# HTML全記録
+# HTML
 ## コーディング
 ### 全体構造
 * 見出し-> \<heading> ~~ </heading\>  

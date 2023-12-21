@@ -1,4 +1,4 @@
-#　コマンド・リンク
+#　MarkDown と Command
 
 ## 1.vscode command
 * C+P->ファイル検索
