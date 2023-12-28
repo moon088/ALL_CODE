@@ -192,7 +192,7 @@ def check_differenceset():
 #実行    
 if __name__ == "__main__":
     result = check_differenceset()
-    print(result)
+    #print(result)
 
     if result[0]:
         print("入力された集合は",(result[1],result[2],result[3]),"-differenceSetです")
