@@ -172,8 +172,7 @@ def check_differenceset():
     #入力された集合Dの任意の要素x,yに対して{x-y}が群G\{0}の部分集合となっていないとき
     if not isSuperset(all_Element_G_non0, cal_Element_G, order):
         #λ回Gの要素が出現するどころか一回も出現していない要素がある
-        print("入力した集合はdifferenceSetではありません")
-        return
+        return False,0
     
     #v個の要素が何回計算した集合(cal_Element_G)に含まれているか計算
     meetings = count_meetings(all_Element_G_non0, cal_Element_G, v)
@@ -182,13 +181,21 @@ def check_differenceset():
     #λを計算し、一定なら性質満たす
     meet = meetings[0]  #会合数の初期化
     for i in range(len(meetings)): 
-        if meetings[i] != meet:
-            print("計算した結果群Gの要素がちょうどλ回出てこないためdifferenceSetではありません")
-            return
+        if meetings[i] != meet: #会合数が一定でない
+            return False, 0
     
-    #differenceSetの性質をすべて満たしているときの出力
-    print("入力された集合はdifferenceSetです")
-    return
+    #differenceSetの性質をすべて満たしているときの出力 
+    #課題３のためにorderも返す
+    return True, v,len(differenceset), meet, differenceset, order, all_Element_G
     
     
-check_differenceset()
+#実行    
+if __name__ == "__main__":
+    result = check_differenceset()
+    print(result)
+
+    if result[0]:
+        print("入力された集合は",(result[1],result[2],result[3]),"-differenceSetです")
+    else:
+        print("入力された集合はdifferenceSetではありません")
+        

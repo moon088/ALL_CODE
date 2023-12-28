@@ -1,26 +1,26 @@
+#課題(1)
 #部分集合族を入力した際にそのデザインがBIBDであるかの判定
 import numpy as np
 
 #すべてのブロックサイズがkであるか判定
 def check_blocksize(subset_family):
-    block_size = len(subset_family[0])
-    for i in range(len(subset_family)):
-        if block_size != len(subset_family[i]):
-            return False ,block_size
-    return True ,block_size
-
-
+        block_size = len(subset_family[0])
+        for i in range(len(subset_family)):
+            if block_size != len(subset_family[i]):
+                return False ,block_size
+        return True ,block_size
+        
+        
 #点集合の要素Xと要素数vを計算
 def cal_pointnum(subset_family):
-    unique_points = set()  #setの初期化
+    unique_points = []  # リストの初期化
     
-    for i in subset_family:
-        for j in i:
-            unique_points.add(j)
+    for subset in subset_family:
+        for point in subset:
+            if point not in unique_points:
+                unique_points.append(point)
 
-    #リストに変換して返す
-    return list(unique_points) ,len(list(unique_points))
-
+    return unique_points, len(unique_points)
 
 #結合行列の作成
 def make_incedenceMatrix(subset_family):
@@ -82,20 +82,18 @@ def input_array():
     for line in input_lines:
         row = [int(x) for x in line.split()]
         two_dimensional_array.append(row)
-    
+   
     return two_dimensional_array
 
 
 #メイン関数
-def check_BIBD():
-    subset_family = input_array()
+def check_BIBD(subset_family):
     all_parameter = [0] * 5 #パラメータの初期化
     
     #ブロックサイズについて
     isBlocksize = check_blocksize(subset_family)[0]
-    if not isBlocksize:
-        print("ブロックサイズが一定でないためBIBDではありません")    
-        return
+    if not isBlocksize:    
+        return False, 1
     #ブロックサイズの格納
     all_parameter[3] = check_blocksize(subset_family)[1]
     
@@ -106,26 +104,36 @@ def check_BIBD():
     #会合数について
     isMeetings = cal_numberOfMeeting(subset_family)[0][1]
     if not isMeetings:
-        print("会合数が一定でないためBIBDではありません")
-        return
+        return False, 2
     all_parameter[4] = cal_numberOfMeeting(subset_family)[2]
     all_parameter[2] = cal_numberOfMeeting(subset_family)[1]
 
     #ブロック数計算
     b = len(subset_family)
-    b = all_parameter[1]
-    
+    all_parameter[1] = b
     #v>k>=2の確認
     if not (all_parameter[0] > all_parameter[3] >= 0):
-        print("v > k >= 2を満たしていません")
-        return
+        return False, 3
     
-    print("入力されたデザインはBIBDの条件を満たしています。以下がパラメータです")
-    print("点の個数X:" ,all_parameter[0],"ブロック数:" ,all_parameter[1],
-          "出現回数:",all_parameter[2], "ブロックサイズ:", all_parameter[3], 
-          "会合数:", all_parameter[4])
-
-
+    return True, all_parameter[0], all_parameter[1], all_parameter[2], all_parameter[3], all_parameter[4]
+    
+def make_output(result):
+    if result[0]:
+        print("入力されたデザインはBIBDの条件を満たしています。以下がパラメータです")
+        print("点の個数X:" ,result[1],"ブロック数:" ,result[2],
+            "出現回数:",result[3], "ブロックサイズ:", result[4], 
+            "会合数:", result[5])
+    else:
+        if result[1] == 1:
+            print("ブロックサイズが一定でないためBIBDではありません")
+        elif result[1] == 2:
+            print("会合数が一定でないためBIBDではありません")
+        elif result[1] == 3:
+            print("v > k >= 2を満たしていません")        
+        else:
+            print("何かエラーが起きてます")
+            
+            
 #test:check_blocksize()
 #print(check_blocksize(test1))
 
@@ -143,4 +151,12 @@ def check_BIBD():
 
 #test:check_BIBD()
 #check_BIBD(test2)
-check_BIBD()
+
+
+if __name__ == "__main__":
+    subset_family = input_array()
+    #print(subset_family)
+    result = check_BIBD(subset_family)
+    make_output(result)
+
+    
