@@ -120,7 +120,7 @@ def check_BIBD(subset_family):
 def make_output(result):
     if result[0]:
         print("入力されたデザインはBIBDの条件を満たしています。以下がパラメータです")
-        print("点の個数X:" ,result[1],"ブロック数:" ,result[2],
+        print("点の個数:" ,result[1],"ブロック数:" ,result[2],
             "出現回数:",result[3], "ブロックサイズ:", result[4], 
             "会合数:", result[5])
     else:

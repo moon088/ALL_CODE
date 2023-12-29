@@ -7,7 +7,7 @@ from itertools import product
 #入力を受け付ける処理
 def input_array():
     print("群の位数を入力してください。直積群の場合はそれぞれの群の位数を入力してください")
-    print("最後に';'をつけてEnter押すと入力が終了します")
+    print("最後に';'をつけてEnterを押すと入力が終了します")
     print("例:Z_4×Z_4ならば4 4;と入力")
     
     input_lines = []
