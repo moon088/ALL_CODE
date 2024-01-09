@@ -30,6 +30,7 @@ def normal_convert(hand):
     return normal_dataset
 #test
 #print(normal_convert(hand))
+print(len(normal_convert(hand)))
 
 #七対子向聴数変換
 def titoi_convert(hand):
@@ -38,7 +39,7 @@ def titoi_convert(hand):
     titoi_dataset[titoi_result] = 1
     return titoi_dataset
 #test
-#print(titoi_dataset(hand))
+print(len(titoi_convert(hand)))
 
 #国士無双向聴数変換
 def kokusi_convert(hand):
@@ -47,7 +48,7 @@ def kokusi_convert(hand):
     kokusi_dataset[kokusi_result] = 1
     return kokusi_dataset
 #test
-#print(kokusi_convert(hand)) 
+print(len(kokusi_convert(hand))) 
 
 #独自制作特徴量(erase_one_xiangting)変換
 def erase_one_convert(hand):
@@ -58,7 +59,7 @@ def erase_one_convert(hand):
         erase_one_dataset[erase_one_result] = 1
         return erase_one_dataset
 #test 
-#print(erase_one_convert(hand))
+print(len(erase_one_convert(hand)))
 
 #独自制作特徴量(erase_two_xiangting)変換
 def erase_two_convert(hand):
@@ -69,7 +70,7 @@ def erase_two_convert(hand):
         erase_two_dataset[erase_two_result] = 1
         return erase_two_dataset
 #test 
-#print(erase_two_convert(hand))
+print(len(erase_two_convert(hand)))
 
 #独自制作特徴量(erase_three_xiangting_z)変換
 def erase_three_convert(hand):
@@ -80,7 +81,7 @@ def erase_three_convert(hand):
         erase_three_dataset[erase_three_result] = 1
         return erase_three_dataset
 #test 
-#print(erase_three_convert(hand))
+print(len(erase_three_convert(hand)))
 
 #色の中で最も多い色の数変換
 def maxcolors_convert(hand):
@@ -90,7 +91,7 @@ def maxcolors_convert(hand):
     maxcolors_dataset[maxcolors_result] = 1
     return maxcolors_dataset
 #test
-#print(maxcolors_convert(hand))
+print(len(maxcolors_convert(hand)))
 
 #色の中で最も多い色+字牌変換
 def sumOfColandZihai_convert(hand):
@@ -99,7 +100,7 @@ def sumOfColandZihai_convert(hand):
     sum_dataset[sum_result] = 1
     return sum_dataset
 #test
-#print(sumOfColandZihai_convert(hand)) 
+print(len(sumOfColandZihai_convert(hand)) )
 
 #2から8の数変換
 def countOf2To8_convert(hand):
@@ -108,7 +109,7 @@ def countOf2To8_convert(hand):
     count_dataset[count_result] = 1
     return count_dataset
 #test
-#print(countOf2To8_convert(hand)) 
+print(len(countOf2To8_convert(hand)) )
 
 #メンツ+両面ターツ+メンツ候補の組み合わせ(独自解釈)の組み合わせ変換
 def mentucomb_convert(hand):
@@ -119,7 +120,7 @@ def mentucomb_convert(hand):
         mentu_dataset[calculated_shanten] = 1
         return mentu_dataset
 #test
-#print(mentucomb_convert(hand))
+print(len(mentucomb_convert(hand)))
 
 
 #1つ下のyakudoraOfzihai_convertのsub関数
@@ -161,7 +162,7 @@ def yakudoraOfzihai_convert(hand,bakaze,jikaze,dora):
     return final_array
 
 #test
-#print(yakudoraOfzihai_convert(hand,bakaze,jikaze,dora))
+print(len(yakudoraOfzihai_convert(hand,bakaze,jikaze,dora)))
 
 #1つ下のabs_count_dora_convertのsub関数
 def cmbinate_bctor2(k,l,m):
@@ -244,7 +245,7 @@ def abs_count_dora_convert(hand,dora):
     return final_array
 #test
 #print(abs_count_dora_convert(hand,dora))
-#print(len(abs_count_dora_convert(hand,dora)))
+print(len(abs_count_dora_convert(hand,dora)))
 
 
 #各色1~9の有無
@@ -267,12 +268,12 @@ def isExi_convert(hand):
         #print(k_array)
     return final_array
 #test
-#print(len(isExi_convert(hand)))
+print(len(isExi_convert(hand)))
 
 def continuous_convert(hand):
     return calculate_continuous_feature.calculate_continuous_feature(hand)
 #test
-#print(continuous_convert(hand))
+print(len(continuous_convert(hand)))
 
 def tanyao_convert(hand):
     mahjong_hand = convert_haicode.convert_array_to_string(hand)
@@ -280,7 +281,7 @@ def tanyao_convert(hand):
     normal_dataset = [0] * 10
     normal_dataset[normal_result + 1] = 1 #range-1~8よりインデックスをインクリメント
     return normal_dataset
-print(tanyao_convert(hand))
+print(len(tanyao_convert(hand)))
 
 #全特徴量ベクトルの結合
 def append_all_dataset(hand,bakaze,jikaze,dora):
