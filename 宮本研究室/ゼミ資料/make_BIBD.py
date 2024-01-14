@@ -42,11 +42,22 @@ def toDifferenceSetFromBIBD():
     
     #BIBDを計算
     BIBD = make_BIBD(result)
+   
+    print("BIBDは以下のデザインである")
+    
+    
+    #BIBD出力をきれいに出力
+    # 各1次元配列をスペース区切りで1列に出力
+    for sublist in BIBD:
+        print(" ".join(map(lambda x: str(x[0]), sublist)), end=" ")
+        print()  # 改行
+
     #print(BIBD)
+    
+    
     
     #課題1使用してBIBDか判定
     isBIBD = check_BIBD.check_BIBD(BIBD)
     check_BIBD.make_output(isBIBD)
     return
-
 toDifferenceSetFromBIBD()
