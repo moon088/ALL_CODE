@@ -181,7 +181,7 @@ def check_differenceset():
     #λを計算し、一定なら性質満たす
     meet = meetings[0]  #会合数の初期化
     for i in range(len(meetings)): 
-        if meetings[i] != meet: #会合数が一定でない
+        if meetings[i] != meet: 
             return False, 0
     
     #differenceSetの性質をすべて満たしているときの出力 

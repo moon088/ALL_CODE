@@ -10,7 +10,7 @@ def check_blocksize(subset_family):
                 return False ,block_size
         return True ,block_size
         
-        
+
 #点集合の要素Xと要素数vを計算
 def cal_pointnum(subset_family):
     unique_points = []  # リストの初期化
