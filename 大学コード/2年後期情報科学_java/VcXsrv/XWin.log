@@ -1,0 +1,12 @@
+Welcome to the VcXsrv X Server
+Vendor: The VcXsrv Project
+Release: 1.20.8.1
+
+OS: Windows NT 6.2 build 9200 (64-bit)
+Contact: marha@users.sourceforge.net
+
+(EE) 
+Fatal server error:
+(EE) Xserver: そのようなホストは不明です。 : -query tusedls00.ed.tus.ac.jp
+(EE) 
+(EE) Server terminated with error (1). Closing log file.
