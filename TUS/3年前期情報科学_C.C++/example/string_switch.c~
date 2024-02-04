@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main () {
+  char buffer[999];
+  int i,j;
+  char x;
+  
+  
+  printf("Input string>");
+  scanf("%s" , buffer);
+  printf("Please input two numbers\n");
+  scanf("%d" , &i);
+  scanf("%d" , &j);
+
+  x = buffer[i-1];
+  buffer[j-1] = buffer[i-1];
+  buffer[i-1] = x;
+  printf("%s\n" , buffer);
+
+
+}
