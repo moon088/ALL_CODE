@@ -1,0 +1,133 @@
+:root {
+  --colBgOut: #FFCE32;
+  --colBgIn:  #8AE9FE;
+  --colBtn:   #00C8FF;
+  --colTxt:   #000000;
+  --colTxtBg: #FFFFFF;
+  --colTxtStat: #606080;
+  --colTxtWarn: #F00000;
+}
+
+/* Basic */
+* {
+	box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background: var(--colBgOut);
+}
+#wrap {
+	width: 640px;
+	max-width: 90%;
+	min-height: 100%;
+	margin: 0 auto;
+	background: var(--colBgIn);
+	padding-top: 1em;
+}
+
+/* ui area */
+.uiArea {
+	max-width: 90%;
+	margin: 0 auto 1em auto;
+	text-align: center;
+}
+
+/* image area */
+#noView {
+	position: relative;
+}
+#noView:before {
+	content: "";
+	display: block;
+	padding-top: 52.5%;
+	background: var(--colTxtBg);
+	border-radius: 0.5em;
+}
+#noView > div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1em;
+}
+#view {
+	display: none;
+	max-width: 100%;
+	border-radius: 0.5em;
+}
+#file {
+	display: none;
+}
+
+/* control area */
+#controlArea button {
+	width: 22%;
+	height: 5em;
+	background: var(--colBtn);
+	color: var(--colTxtBg);
+	border: none;
+	border-radius: 0.5em;
+	font-weight: bold;
+}
+
+/* comment area */
+#commentArea textarea {
+	width: 100%;
+	height: 5em;
+	border: none;
+	border-radius: 0.5em;
+	padding: 0.5em;
+}
+.inputStatus {
+	font-size: 75%;
+	font-weight: bold;
+	color: var(--colTxtStat);
+}
+.inputStatusWarn {
+	color: var(--colTxtWarn);
+}
+
+/* send area */
+#sendArea button {
+	width: 100%;
+	height: 5em;
+	background: var(--colBtn);
+	color: var(--colTxtBg);
+	border: none;
+	border-radius: 0.5em;
+	font-weight: bold;
+}
+
+/* post list area */
+#postListArea {
+	padding-bottom: 1em;
+}
+.postListItem {
+	width: 90%;
+	margin: 0 auto 1em auto;
+}
+.plImage img {
+	width: 100%;
+	border-radius: 0.5em;
+}
+.plBody {
+	background: var(--colTxtBg);
+	color: var(--colTxt);
+	border-radius: 0.5em;
+	padding: 0.5em 1em;
+}
+.plDate {
+	text-align: right;
+	color: var(--colTxtStat);
+	font-size: 75%;
+}
