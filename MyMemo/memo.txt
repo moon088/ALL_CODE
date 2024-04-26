@@ -6,3 +6,8 @@ LSTM
 準同型暗号
 格子暗号
 楕円エルが〇暗号
+
+
+
+
+A perfect -(t,w)threshold scheme
