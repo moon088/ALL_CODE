@@ -1,5 +1,5 @@
 # AtCoderメモ
-・Quita-><https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbE1QY0l6Rk0xY0VIMTNrcGV3Y19ZeHg5SXJLUXxBQ3Jtc0tuTnYwelNOdlBKdnFkamNKX3RYMXdvQnM1OWlLNUNyWUV0N0pQNkNWTVFLTi0weEJ0ZEpFVW5NZDdXb2laTnBqYjVOdlktcjdTTi1BN1BwRC1JUHVYQmVjRzhxc3R4amk1eDFKSWZnbjF6NjJUV3lnbw&q=https%3A%2F%2Fqiita.com%2Fe869120%2Fitems%2Feb50fdaece12be418faa%232-3-%25E5%2588%2586%25E9%2587%258E%25E5%2588%25A5%25E5%2588%259D%25E4%25B8%25AD%25E7%25B4%259A%25E8%2580%2585%25E3%2581%258C%25E8%25A7%25A3%25E3%2581%258F%25E3%2581%25B9%25E3%2581%258D%25E9%2581%258E%25E5%258E%25BB%25E5%2595%258F%25E7%25B2%25BE%25E9%2581%25B8-100-%25E5%2595%258F&v=qxoQ6sKy3aM>
+・[Quita](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbE1QY0l6Rk0xY0VIMTNrcGV3Y19ZeHg5SXJLUXxBQ3Jtc0tuTnYwelNOdlBKdnFkamNKX3RYMXdvQnM1OWlLNUNyWUV0N0pQNkNWTVFLTi0weEJ0ZEpFVW5NZDdXb2laTnBqYjVOdlktcjdTTi1BN1BwRC1JUHVYQmVjRzhxc3R4amk1eDFKSWZnbjF6NjJUV3lnbw&q=https%3A%2F%2Fqiita.com%2Fe869120%2Fitems%2Feb50fdaece12be418faa%232-3-%25E5%2588%2586%25E9%2587%258E%25E5%2588%25A5%25E5%2588%259D%25E4%25B8%25AD%25E7%25B4%259A%25E8%2580%2585%25E3%2581%258C%25E8%25A7%25A3%25E3%2581%258F%25E3%2581%25B9%25E3%2581%258D%25E9%2581%258E%25E5%258E%25BB%25E5%2595%258F%25E7%25B2%25BE%25E9%2581%25B8-100-%25E5%2595%258F&v=qxoQ6sKy3a)
 
 
 ## メソッド
@@ -24,9 +24,52 @@
 
 ![alt text](Image/list.png)  
 
+### set
+* sorted set->簡単に言うと set の各要素が常にソートされているデータ構造だと思ってよい。
+  以下がその例。
+```python
+  from sortedcontainers import SortedSet, SortedList, SortedDict
+  S = SortedSet([3, 1, 2,6,7,8,9,10])
+  #SortedSet([1, 2, 3]), 初期化の計算量は O(N * logN)
+  S.add(4)
+  print(S)
+  #SortedSet([1, 2, 3, 4]), add の計算量は O(logN)
+  S.add(3)
+  print(S)
+  #SortedSet([1, 2, 3, 4]), 要素は重複しない
+  S.discard(4)
+  print(S)
+  #SortedSet([1, 2, 3]), 値4を削除 計算量は O(logN) 存在しない要素をdiscardすると、何も起こらない
+  #S.remove(100) とやると、KeyErrorが出る
+  S.pop(2)
+  print(S)
+  #S[2]を削除 S.pop()で最大要素の削除 S.pop(0) で最小要素の削除　全部 O(logN)
+  print(S[1])
+
+  #2 getは O(logN)
+  print(S[0:2])
+  #0 1 スライスなどもできる　これの計算量は長さを k として O(klogN)
+  print(len(S))
+  #2 現在の要素数 O(1)
+  print(S.bisect_left(1))
+  #1
+  print(S.bisect_right(1))
+  #2
+  #これらは二分探索。 S.bisect_left(x) で、Sにxを挿入する位置(index)を返す。
+  #S.bisect_right(x) との違いは、すでにxがSにあるときに左に入れるか右に入れるか
+  #Pythonのbisectと同じ使用感
+  print(S.index(2))
+
+  #1 Sに2が現れる最初の位置を返す。ないとValueError
+  print(S.irange(0,2))
+
+  #[1, 2] S に含まれる 0以上2以下（両端含む）の要素を列挙
+```
+* sortedlist->ほとんどSortedSetと同じですが、重複した要素が許される。
+* sortedDict->Dictの要素がソートされたバージョンです。
 
 ### 辞書型
-辞書型に関するURL: <https://www.sejuku.net/blog/24122>
+[辞書型に関するURL](https://www.sejuku.net/blog/24122)
 
 
 ###　文字コード
@@ -35,7 +78,7 @@
   * ex.) a->97, A->65
 
 ###　入力
-* 入力に関するURL: <https://qiita.com/scythercas/items/5e08dfffb49468dd1176>
+* [入力に関するURL](https://qiita.com/scythercas/items/5e08dfffb49468dd1176)
 
 ###　その他
 * recerced(A): 逆順リストの新たな生成
@@ -65,8 +108,8 @@
   全探索せずに小さな計算結果を保存し、冗長な計算を避ける。
 
   <動的計画法に関するURL>
-    [初歩]<https://www.momoyama-usagi.com/entry/info-algo-dp#i>
-    [Quita]<https://qiita.com/drken/items/dc53c683d6de8aeacf5a>
+    [初歩](https://www.momoyama-usagi.com/entry/info-algo-dp#i)
+    [Quita](https://qiita.com/drken/items/dc53c683d6de8aeacf5a)
     [Quita:Dp問題の網羅](https://qiita.com/drken/items/a5e6fe22863b7992efdb#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB-----dp-%E3%81%AF%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A4)
     [Quita:Dp問題の網羅2](https://qiita.com/drken/items/a5e6fe22863b7992efdb#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB-----dp-%E3%81%AF%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A4)
 
@@ -208,4 +251,122 @@
   pos = [2,3,1,4]
   ```
 
+### UnionFind
+* Union: 2つの集合を1つに併合する
+* Find: ある要素がどの集合に属しているかを判定する
+[素集合データ構造](https://www.slideshare.net/chokudai/union-find-49066733)
+[UnionFindについて](https://note.nkmk.me/python-union-find/)
 
+はじめ素集合(すべて１つずつの集合)から併合していき、同じグループに属するものを見つける。リンクにもあるようにグループ作成時にΘ(N)かかってしまうので木を利用する
+
+![unionFind1](Image/Union-find-8-638.webp)  
+![unionFind2](Image/Union-find-9-638.webp)  
+![unionFind3](Image/Union-find-11-638.webp)  
+
+``` python  
+#PythonでのUnion Findの実装例
+from collections import defaultdict
+
+
+class UnionFind():
+  def __init__(self, n):
+    self.n = n
+    self.parents = [-1] * n
+
+#要素x が属するグループの根を返す
+  def find(self, x):
+    if self.parents[x] < 0:
+      return x
+    else:
+      self.parents[x] = self.find(self.parents[x])
+      return self.parents[x]
+
+  #xとyが属するグループの併合
+  def union(self, x, y):
+    x = self.find(x)
+    y = self.find(y)
+
+    if x == y:
+      return
+
+    if self.parents[x] > self.parents[y]:
+      x, y = y, x
+
+    self.parents[x] += self.parents[y]
+    self.parents[y] = x
+
+  #グループのサイズ返す
+  def size(self, x):
+      return -self.parents[self.find(x)]
+
+  #xとyが同じグループに属するかどうか
+  def same(self, x, y):
+    return self.find(x) == self.find(y)
+
+  #xが属するグループのリスト
+  def members(self, x):
+    root = self.find(x)
+    return [i for i in range(self.n) if self.find(i) == root]
+
+  #すべての根のリスト
+  def roots(self):
+    return [i for i, x in enumerate(self.parents) if x < 0]
+
+  #グループ数
+  def group_count(self):
+    return len(self.roots())
+
+  def all_group_members(self):
+    group_members = defaultdict(list)
+    for member in range(self.n):
+      group_members[self.find(member)].append(member)
+    return group_members
+
+  #printでの表示用
+  def __str__(self):
+    return '\n'.join(f'{r}: {m}' for r, m in self.all_group_members().items())
+
+
+#サンプル
+#マイナスはその要素が根であり-2なら要素２の木。プラスならそのインデックスが親である
+uf = UnionFind(6)
+print(uf.parents)
+# [-1, -1, -1, -1, -1, -1]
+
+print(uf)
+# 0: [0]
+# 1: [1]
+# 2: [2]
+# 3: [3]
+# 4: [4]
+# 5: [5]
+
+uf.union(0, 2)
+print(uf.parents)
+# [-2, -1, 0, -1, -1, -1]
+
+print(uf)
+# 0: [0, 2]
+# 1: [1]
+# 3: [3]
+# 4: [4]
+# 5: [5]
+
+uf.union(1, 3)
+print(uf.parents)
+uf.union(4, 5)
+print(uf.parents)
+uf.union(1, 4)
+print(uf.parents)
+# [-2, -2, 0, 1, -1, -1]
+# [-2, -2, 0, 1, -2, 4]
+# [-2, -4, 0, 1, 1, 4]
+
+print(uf)
+# 0: [0, 2]
+# 1: [1, 3, 4, 5]
+
+#ここで__str__()が実行され経路圧縮が行われる
+print(uf.parents)
+#[-2,-4,0,1,1,1]
+```
