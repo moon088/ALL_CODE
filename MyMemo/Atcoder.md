@@ -70,7 +70,7 @@
 
 ### 辞書型
 [辞書型に関するURL](https://www.sejuku.net/blog/24122)
-
+[defaultdictに関して](https://qiita.com/xza/items/72a1b07fcf64d1f4bdb7)
 
 ###　文字コード
 * ord():文字から文字コード取得
@@ -121,97 +121,97 @@
 #### ナップサック問題
     ナップサックへの許容量(制限が決まっている中で)最大の値を入れる組み合わせを考える。行がアイテム、列が最大許容量までの連続値とし、dp_tableを作成する。
     以下が実装例
-    ```python
-    def find_max_dp(num_list, limit): #行がリストの要素、列がSまでの数値
-      list_len = len(num_list)
-      dp_table = [[0 for j in range(limit + 1)] for i in range(list_len)]
+  ```python
+  def find_max_dp(num_list, limit): #行がリストの要素、列がSまでの数値
+    list_len = len(num_list)
+    dp_table = [[0 for j in range(limit + 1)] for i in range(list_len)]
 
-      # 1番目
-      for j in range(limit + 1):
-          if num_list[0] <= j:
-              dp_table[0][j] = list[0] # 1番目追加
-  
-      # 2番目以降
-      for i in range(list_len):
-          for j in range(limit + 1):
-              tmp_not_choice = dp_table[i-1][j]
-              if num_list[i] > j: # i番目の要素がjに到達しないときはi-1をそのまま採用
-                  dp_table[i][j] = tmp_not_choice 
-              else: 
-                #i-1行j列の値(i番目を不採用)とi-1行(j-i番目の値)列にi番目の値を足したもの(i番目を採用)をmaxで判定
-                  tmp_choice = dp_table[i-1][j - num_list[i]] + num_list[i]
-                  dp_table[i][j] = max(tmp_choice,tmp_not_choice)
-  
-      return dp_table[list_len - 1][limit]
+    # 1番目
+    for j in range(limit + 1):
+        if num_list[0] <= j:
+            dp_table[0][j] = list[0] # 1番目追加
 
-    list = [4,8,6]
-    print(find_max_dp(list,10))
-    ```
+    # 2番目以降
+    for i in range(list_len):
+        for j in range(limit + 1):
+            tmp_not_choice = dp_table[i-1][j]
+            if num_list[i] > j: # i番目の要素がjに到達しないときはi-1をそのまま採用
+                dp_table[i][j] = tmp_not_choice 
+            else: 
+              #i-1行j列の値(i番目を不採用)とi-1行(j-i番目の値)列にi番目の値を足したもの(i番目を採用)をmaxで判定
+                tmp_choice = dp_table[i-1][j - num_list[i]] + num_list[i]
+                dp_table[i][j] = max(tmp_choice,tmp_not_choice)
+
+    return dp_table[list_len - 1][limit]
+
+  list = [4,8,6]
+  print(find_max_dp(list,10))
+  ```
 
 
 #### 部分和問題
     ある列A_1,A_2,,,A_kをいくつか足し合わせてSになる組み合わせがあるか調べる
     行に列A、列にSまでの連続値とするdp_tableを作成する。以下が実装例
 
-    ```python
-      # A18 - Subset Sum
-      #部分和問題SとなるならYes,ならないならNo
+  ```python
+    # A18 - Subset Sum
+    #部分和問題SとなるならYes,ならないならNo
 
-    N, S = map(int, input().split())
-    A = list(map(int, input().split()))
+  N, S = map(int, input().split())
+  A = list(map(int, input().split()))
 
 
-    # 動的計画法（i=0）
-    dp = [ [ None ] * (S + 1) for i in range(N + 1) ]
-    dp[0][0] = True
-    for i in range(1, S+1):
-      dp[0][i] = False
+  # 動的計画法（i=0）
+  dp = [ [ None ] * (S + 1) for i in range(N + 1) ]
+  dp[0][0] = True
+  for i in range(1, S+1):
+    dp[0][i] = False
 
-    # 動的計画法（i=1）
-    for i in range(1, N+1):
-      for j in range(0,S+1):
-        if j < A[i-1]:
-          if dp[i-1][j] == True:
-            dp[i][j] = True
-          else:
-            dp[i][j] = False
+  # 動的計画法（i=1）
+  for i in range(1, N+1):
+    for j in range(0,S+1):
+      if j < A[i-1]:
+        if dp[i-1][j] == True:
+          dp[i][j] = True
+        else:
+          dp[i][j] = False
 
-        if j >= A[i-1]:
-          if dp[i-1][j] == True or dp[i-1][j-A[i-1]] == True:
-            dp[i][j] = True
-          else:
-            dp[i][j] = False
+      if j >= A[i-1]:
+        if dp[i-1][j] == True or dp[i-1][j-A[i-1]] == True:
+          dp[i][j] = True
+        else:
+          dp[i][j] = False
 
-    # 出力
-    if dp[N][S] == True:
-      print("Yes")
-    else:
-      print("No")
-    ```
+  # 出力
+  if dp[N][S] == True:
+    print("Yes")
+  else:
+    print("No")
+  ```
 #### 最長共通部分列問題(LIS)
     1. 2つのシーケンスの長さを取得します。
     2. 動的計画法のテーブル（配列）を用意し、初期値を設定します。
     3. テーブルを更新していきます。
     4. 最終的な結果をテーブルから読み取り、最長共通部分列が得られます。
-    ```python
-    def longest_common_subsequence(text1, text2):
-      m, n = len(text1), len(text2)
-      dp = [[0] * (n + 1) for _ in range(m + 1)]
-      
-      for i in range(1, m + 1):
-          for j in range(1, n + 1):
-              if text1[i - 1] == text2[j - 1]:
-                  dp[i][j] = dp[i - 1][j - 1] + 1
-              else:
-                  dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
-      
-      return dp[m][n]
-    # 2つの文字列 "ACCGGTCGAGTGCGCGGAAGCCGGCCGAA" と "GTCGTTCGGAATGCCGTTGCTCTGTAAA" の最長共通部分列を求める例
-    text1 = "ACCGGTCGAGTGCGCGGAAGCCGGCCGAA"
-    text2 = "GTCGTTCGGAATGCCGTTGCTCTGTAAA"
+  ```python
+  def longest_common_subsequence(text1, text2):
+    m, n = len(text1), len(text2)
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if text1[i - 1] == text2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+            else:
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+    
+    return dp[m][n]
+  # 2つの文字列 "ACCGGTCGAGTGCGCGGAAGCCGGCCGAA" と "GTCGTTCGGAATGCCGTTGCTCTGTAAA" の最長共通部分列を求める例
+  text1 = "ACCGGTCGAGTGCGCGGAAGCCGGCCGAA"
+  text2 = "GTCGTTCGGAATGCCGTTGCTCTGTAAA"
 
-    print(longest_common_subsequence(text1, text2))  # 結果: 20
-    ```
+  print(longest_common_subsequence(text1, text2))  # 結果: 20
+  ```
 
 
 #### 最長増加連続部分列問題
@@ -221,23 +221,23 @@
       2. 現在見ている要素が、一つ手前の要素以上であれば、増加列の長さを+1する。
       3. 現在見ている要素が、一つ手前の要素より小さければ、増加列の長さを1にリセットする。
 
-    ```python
-    def longest_increasing_subsequence(nums):
-    n = len(nums)
-    dp = [1] * n
-    
-    for i in range(1, n):
-        for j in range(i):
-            if nums[i] > nums[j]:
-                dp[i] = max(dp[i], dp[j] + 1)
-    
-    return max(dp)
+  ``` python
+  def longest_increasing_subsequence(nums):
+  n = len(nums)
+  dp = [1] * n
+  
+  for i in range(1, n):
+      for j in range(i):
+          if nums[i] > nums[j]:
+              dp[i] = max(dp[i], dp[j] + 1)
+  
+  return max(dp)
 
-    # 数列 [10, 9, 2, 5, 3, 7, 101, 18] の最長増加部分列を求める例
-    nums = [10, 9, 2, 5, 3, 7, 101, 18]
+  # 数列 [10, 9, 2, 5, 3, 7, 101, 18] の最長増加部分列を求める例
+  nums = [10, 9, 2, 5, 3, 7, 101, 18]
 
-    print(longest_increasing_subsequence(nums))  # 結果: 4
-    ```
+  print(longest_increasing_subsequence(nums))  # 結果: 4
+  ```
 
 ### 配列内要素iのインデックスを効率よく求める
   "配列Aの中でiがどこにあるか"を配列の中から毎回探すと、最悪Θ(N)時間、全体でΘ(N^2) 時間かかるケースが存在し、TLE(実行時間制限超過)となる。
