@@ -1,4 +1,0 @@
-def fried(food):
-    food = "fried " + food
-    return food
-
